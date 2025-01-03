@@ -1,6 +1,7 @@
 import { Children, cloneElement, Fragment, useState } from "react";
 
 interface IProp {
+  /** minimum two items */
   children: React.ReactElement[];
 }
 
