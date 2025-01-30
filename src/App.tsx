@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { postMessage } from "./utils/messageUtil";
 import { Router } from "./router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const BANNEREXIST = true;
 
@@ -21,7 +22,11 @@ function App() {
     };
   }, []);
 
-  return <Router />;
+  return (
+    <QueryClientProvider client={new QueryClient()}>
+      <Router />
+    </QueryClientProvider>
+  );
 }
 
 export default App;

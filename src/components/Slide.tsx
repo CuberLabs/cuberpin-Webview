@@ -10,11 +10,7 @@ export const Slide = ({ children }: IProp) => {
   const [index, setIndex] = useState(0);
   const [direct, setDirect] = useState<null | "left" | "right">(null);
 
-  const screens = [].concat(
-    ...children.map((i) =>
-      i.type === Fragment ? Children.map(i.props.children, (item) => item) : i
-    )
-  );
+  const screens = [].concat(...children.map((i) => (i.type === Fragment ? Children.map(i.props.children, (item) => item) : i)));
 
   const [Curr, Next] = screens.slice(index, index + 2).map((i) =>
     i
@@ -28,6 +24,7 @@ export const Slide = ({ children }: IProp) => {
               }, 600);
             }
           },
+          index,
         })
       : undefined
   );

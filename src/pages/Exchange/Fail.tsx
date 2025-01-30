@@ -1,6 +1,6 @@
-import { Fail as FailIcon } from "../../../assets";
-import { Button } from "../../../components";
-import { postMessage } from "../../../utils/messageUtil";
+import { Fail as FailIcon } from "../../assets";
+import { Button } from "../../components";
+import { postMessage } from "../../utils";
 
 export const Fail = () => {
   return (
