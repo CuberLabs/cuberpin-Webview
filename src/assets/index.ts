@@ -5,4 +5,5 @@ export { default as Fail } from "./Fail.svg?react";
 export { default as Point } from "./Point.svg?react";
 export { default as Culture } from "./Culture.svg?react";
 export { default as Trashcan } from "./Trashcan.svg?react";
+export { default as Success } from "./Success.svg?react";
 export * from "./bankLogo";
