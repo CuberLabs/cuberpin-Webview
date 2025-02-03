@@ -5,7 +5,7 @@ import { Phone } from "./Phone";
 import { Name } from "./Name";
 import { Password } from "./Password";
 import { Success } from "./Success";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Check } from "./Check";
 import { Verify } from "./Verify";
 
@@ -22,18 +22,34 @@ export const Register = () => {
     name: "",
     password: "",
   });
+  const isStartByQuiz = useMemo(() => searchParams.get("startByQuiz") === "true", []);
 
-  return (
-    <div className="w-full h-full overflow-auto">
-      <Slide>
-        {searchParams.get("startByQuiz") === "true" ? <StartWithQuiz /> : <></>}
-        <Phone data={data} setData={setData} />
-        <Name data={data} setData={setData} />
-        <Check data={data} />
-        <Verify data={data} />
-        <Password data={data} setData={setData} />
-        <Success />
-      </Slide>
-    </div>
-  );
+  if (isStartByQuiz) {
+    return (
+      <div className="w-full h-full overflow-auto">
+        <Slide>
+          <StartWithQuiz />
+          <Phone data={data} setData={setData} />
+          <Name data={data} setData={setData} />
+          <Check data={data} />
+          <Verify data={data} />
+          <Password data={data} setData={setData} />
+          <Success />
+        </Slide>
+      </div>
+    );
+  } else {
+    return (
+      <div className="w-full h-full overflow-auto">
+        <Slide>
+          <Phone data={data} setData={setData} />
+          <Name data={data} setData={setData} />
+          <Check data={data} />
+          <Verify data={data} />
+          <Password data={data} setData={setData} />
+          <Success />
+        </Slide>
+      </div>
+    );
+  }
 };
